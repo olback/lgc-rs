@@ -1,5 +1,5 @@
 [package]
-name = "last-git-commit"
+name = "last_git_commit"
 version = "0.1.0"
 authors = ["olback <git@olback.net>"]
 edition = "2018"

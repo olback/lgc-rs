@@ -152,11 +152,13 @@ impl LastGitCommit {
     /// `branch`: Branch to use. `None` defaults to `master`.
     ///
     /// # Examples
-    /// ```
+    /// ```rust,should_panic
+    /// extern crate last_git_commit;
+    /// use last_git_commit::{LastGitCommit};
     /// let lgc = LastGitCommit::new(None, None).unwrap();
-    /// let lgc = LastGitCommit::new("my/path/to/other/git/repo", None).unwrap();
-    /// let lgc = LastGitCommit::new(None, "my-other-branch").unwrap();
-    /// let lgc = LastGitCommit::new("my/path/to/other/git/repo", "my-other-branch").unwrap();
+    /// let lgc = LastGitCommit::new(Some("my/path/to/other/git/repo"), None).unwrap();
+    /// let lgc = LastGitCommit::new(None, Some("my-other-branch")).unwrap();
+    /// let lgc = LastGitCommit::new(Some("my/path/to/other/git/repo"), Some("my-other-branch")).unwrap();
     /// ```
     pub fn new(path: Option<&str>, branch: Option<&str>) -> Result<LastGitCommit, git2::Error> {
 
@@ -209,10 +211,10 @@ impl LastGitCommit {
 }
 
 
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}
+// #[cfg(test)]
+// mod tests {
+//     #[test]
+//     fn it_works() {
+//         assert_eq!(2 + 2, 4);
+//     }
+// }
