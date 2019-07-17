@@ -28,6 +28,17 @@ jobs:
                     rustc --version --verbose
                     rustup --version
                     cargo --version --verbose
+
+        - run:
+            name: Create _tests_ Branch
+            command: |
+                      git checkout -b _tests_
+                      if [ $(git status | cut -c 10-16 | head -1 | rev | cut -c 1-6 | rev) = "master" ]; then
+                        git checkout master
+                      else
+                        git checkout -b master
+                      fi
+
       - run:
           name: Run Tests
           command: cargo test
@@ -81,7 +92,17 @@ jobs:
 
 workflows:
   version: 2
-  build:
+  test:
     jobs:
       - stable
       - nightly
+  nightly:
+    jobs:
+      - nightly
+    triggers:
+      - schedule:
+          cron: "0 2 * *"
+          filters:
+            branches:
+              only:
+                - master
