@@ -11,7 +11,7 @@ fn path_none() {
 
     let path = LastGitCommit::new(None, None).unwrap().path();
 
-    assert_eq!(path, ".".to_string())
+    assert_eq!(path, ".".to_string());
 
 }
 
@@ -21,6 +21,7 @@ fn path_custom() {
     let working_dir = format!("{}", env::current_dir().unwrap().display());
     let path = LastGitCommit::new(Some(&working_dir), None).unwrap().path();
 
-    assert_eq!(path, working_dir)
+    assert_eq!(path, working_dir);
+    assert_ne!(path, ".".to_string());
 
 }

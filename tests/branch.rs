@@ -10,7 +10,7 @@ fn branch_none() {
 
     let branch = LastGitCommit::new(None, None).unwrap().branch();
 
-    assert_eq!(branch, "master".to_string())
+    assert_eq!(branch, "master".to_string());
 
 }
 
@@ -20,6 +20,7 @@ fn branch_custom() {
     let custom_branch = "_tests_";
     let branch = LastGitCommit::new(None, Some(&custom_branch)).unwrap().branch();
 
-    assert_eq!(branch, custom_branch.to_string())
+    assert_eq!(branch, custom_branch.to_string());
+    assert_ne!(branch, "master".to_string());
 
 }

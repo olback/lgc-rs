@@ -4,7 +4,7 @@ A simple wrapper arround [`git2-rs`](https://github.com/rust-lang/git2-rs) to ea
 ### TODO:
 - [ ] Documentation
 - [ ] Examples
-- [ ] Tests
+- [x] Tests
 - [ ] Rust Stable
 - [x] Rust Nightly
 - [ ] CI
