@@ -30,7 +30,7 @@ jobs:
                     cargo --version --verbose
 
       - run:
-          name: Create _tests_ Branch
+          name: Create _tests_ branch and switch to master
           command: |
                     git checkout -b _tests_
                     if [ $(git branch --list master | cat | cut -c 3-) ]; then
@@ -79,6 +79,17 @@ jobs:
                     rustc --version --verbose
                     rustup --version
                     cargo --version --verbose
+
+      - run:
+          name: Create _tests_ branch and switch to master
+          command: |
+                    git checkout -b _tests_
+                    if [ $(git branch --list master | cat | cut -c 3-) ]; then
+                      git checkout master
+                    else
+                      git checkout -b master
+                    fi
+
       - run:
           name: Run Tests
           command: cargo test
