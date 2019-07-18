@@ -3,6 +3,16 @@ name = "last_git_commit"
 version = "0.1.0"
 authors = ["olback <git@olback.net>"]
 edition = "2018"
+description = "Simple wrapper arround git2-rs to get info about the last commit. Useful for when you want to show the git hash in a program."
+homepage = "https://github.com/olback/lgc-rs"
+repository = "https://github.com/olback/lgc-rs"
+readme = "README.md"
+keywords = ["git", "commit", "hash", "simple", "time"]
+categories = ["data-structures"]
+license = "MIT"
+
+[badges]
+circle-ci = { repository = "olback/lgc-rs" }
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

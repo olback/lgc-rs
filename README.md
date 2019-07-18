@@ -8,3 +8,4 @@ A simple wrapper arround [`git2-rs`](https://github.com/rust-lang/git2-rs) to ea
 - [x] Rust Stable
 - [x] Rust Nightly
 - [x] CI
+- [x] Cargo.toml
