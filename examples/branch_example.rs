@@ -1,11 +1,10 @@
-extern crate last_git_commit;
-use last_git_commit::{LastGitCommit, Branch};
+use last_git_commit::LastGitCommit;
 
 fn main() {
 
-    let lgc = LastGitCommit::new(None, None).unwrap();
+    let lgc = LastGitCommit::new().build().unwrap();
     let branch = lgc.branch();
 
-    println!("Bath: {}", branch); // "master"
+    println!("Branch: {}", branch); // "master"
 
 }
