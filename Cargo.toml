@@ -1,6 +1,6 @@
 [package]
 name = "last-git-commit"
-version = "0.2.0-alpha"
+version = "0.2.0"
 authors = ["olback <lgc@olback.net>"]
 edition = "2018"
 description = "Simple wrapper arround git2-rs to get info about the last commit. Useful for when you want to show the git hash in a program."

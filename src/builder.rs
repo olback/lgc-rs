@@ -8,7 +8,7 @@ pub struct LastGitCommitBuilder {
 
 impl LastGitCommitBuilder {
 
-    pub fn new() -> Self {
+    pub(crate) fn new() -> Self {
 
         Self {
             path: None,
@@ -17,6 +17,7 @@ impl LastGitCommitBuilder {
 
     }
 
+    /// Set path to git archive
     pub fn set_path<P: Into<PathBuf>>(mut self, path: P) -> Self {
 
         self.path = Some(path.into());
@@ -25,6 +26,7 @@ impl LastGitCommitBuilder {
 
     }
 
+    /// Set branch, defaults to current head
     pub fn set_branch<B: Into<String>>(mut self, branch: B) -> Self {
 
         self.branch = Some(branch.into());
@@ -33,6 +35,7 @@ impl LastGitCommitBuilder {
 
     }
 
+    /// Fetch all the data
     pub fn build(self) -> Result<LastGitCommit, git2::Error> {
 
         let path = self.path.unwrap_or(PathBuf::from("."));

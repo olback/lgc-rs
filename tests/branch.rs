@@ -10,7 +10,7 @@ fn branch_none() {
     let lgc = LastGitCommit::new().build().unwrap();
     let branch = lgc.branch();
 
-    assert_eq!(branch, &"0.2".to_string());
+    assert_eq!(branch, &"master".to_string());
 
 }
 
