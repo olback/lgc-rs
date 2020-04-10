@@ -1,11 +1,10 @@
-extern crate last_git_commit;
-use last_git_commit::{LastGitCommit, Author};
+use last_git_commit::LastGitCommit;
 
 fn main() {
 
-    let lgc = LastGitCommit::new(None, None).unwrap();
-    let name = lgc.author.name();
-    let email = lgc.author.email();
+    let lgc = LastGitCommit::new().build().unwrap();
+    let name = lgc.author().name().unwrap();
+    let email = lgc.author().email().unwrap();
 
     println!("Name: {}", name); // "Jon Doe"
     println!("Email: {}", email); // "jondoe@example.com"

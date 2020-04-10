@@ -1,5 +1,4 @@
-extern crate last_git_commit;
-use last_git_commit::{LastGitCommit, Message};
+use last_git_commit::LastGitCommit;
 
 /**
  * Id Tests
@@ -7,9 +6,9 @@ use last_git_commit::{LastGitCommit, Message};
 #[test]
 fn message() {
 
-    let message = LastGitCommit::new(None, None).unwrap().message();
+    let lgc = LastGitCommit::new().build().unwrap();
+    let message = lgc.message();
 
-    assert!(message.len() > 0);
-    assert_ne!(message, "<no commit message>".to_string());
+    assert!(message.is_some());
 
 }

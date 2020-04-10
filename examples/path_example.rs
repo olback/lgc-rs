@@ -1,11 +1,10 @@
-extern crate last_git_commit;
-use last_git_commit::{LastGitCommit, Path};
+use last_git_commit::LastGitCommit;
 
 fn main() {
 
-    let lgc = LastGitCommit::new(None, None).unwrap();
+    let lgc = LastGitCommit::new().build().unwrap();
     let path = lgc.path();
 
-    println!("Path: {}", path); // "."
+    println!("Path: {:?}", path); // "."
 
 }

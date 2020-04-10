@@ -1,5 +1,4 @@
-extern crate last_git_commit;
-use last_git_commit::{LastGitCommit, Branch};
+use last_git_commit::LastGitCommit;
 
 /**
  * Branch Tests
@@ -8,9 +7,10 @@ use last_git_commit::{LastGitCommit, Branch};
 #[test]
 fn branch_none() {
 
-    let branch = LastGitCommit::new(None, None).unwrap().branch();
+    let lgc = LastGitCommit::new().build().unwrap();
+    let branch = lgc.branch();
 
-    assert_eq!(branch, "master".to_string());
+    assert_eq!(branch, &"0.2".to_string());
 
 }
 
@@ -18,9 +18,10 @@ fn branch_none() {
 fn branch_custom() {
 
     let custom_branch = "_tests_";
-    let branch = LastGitCommit::new(None, Some(&custom_branch)).unwrap().branch();
+    let lgc = LastGitCommit::new().set_branch(custom_branch).build().unwrap();
+    let branch = lgc.branch();
 
-    assert_eq!(branch, custom_branch.to_string());
-    assert_ne!(branch, "master".to_string());
+    assert_eq!(branch, &custom_branch.to_string());
+    assert_ne!(branch, &"master".to_string());
 
 }
