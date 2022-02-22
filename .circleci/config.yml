@@ -109,13 +109,13 @@ workflows:
       - stable
       - nightly
 
-  nightly_cron:
-    jobs:
-      - nightly
-    triggers:
-      - schedule:
-          cron: "0 2 * * *"
-          filters:
-            branches:
-              only:
-                - master
+        #  nightly_cron:
+        #    jobs:
+        #      - nightly
+        #    triggers:
+        #      - schedule:
+        #          cron: "0 2 * * *"
+        #          filters:
+        #            branches:
+        #              only:
+        #                - master
